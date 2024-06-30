@@ -1,0 +1,43 @@
+<h1>
+    order <span class="text-primary">{{ order?.id }}</span>
+</h1>
+<hr>
+
+<div class="row">
+    <div class="col-md-2">Date Time</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ order?.dateTime }}</span>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-2">Notes</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ order?.notes }}</span>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2">Total Price</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ order?.totalPrice }}</span>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2">Customer</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ order?.CustomerId }}</span>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2">Meals</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ order?.meals }}</span>
+    </div>
+</div>
+
+
+<div class="mt-3">
+    <button mat-raised-button [routerLink]="['/order']">Back</button>
+    <button mat-raised-button color="primary" class="ms-2" [routerLink]="['/edit/order', order?.id]">Edit</button>
+</div>
+

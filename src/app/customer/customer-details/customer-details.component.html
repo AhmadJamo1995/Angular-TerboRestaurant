@@ -1,0 +1,48 @@
+<h1>
+    customer <span class="text-primary">{{ customer?.fullName }}</span>
+</h1>
+<hr>
+
+<div class="row">
+    <div class="col-md-2">Full Name</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ customer?.fullName }}</span>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-2">Age</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ customer?.age }}</span>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2">Country</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ customer?.country }}</span>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2">Email</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ customer?.email }}</span>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2">Genger</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ customer?.gender }}</span>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="col-md-2">PhoneNumber</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ customer?.phoneNumber }}</span>
+    </div>
+</div>
+
+
+<div class="mt-3">
+    <button mat-raised-button [routerLink]="['/customer']">Back</button>
+    <button mat-raised-button color="primary" class="ms-2" [routerLink]="['/edit/customer', customer?.id]">Edit</button>
+</div>

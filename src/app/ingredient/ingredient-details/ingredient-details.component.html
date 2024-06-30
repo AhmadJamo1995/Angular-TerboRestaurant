@@ -1,0 +1,24 @@
+<h1>
+    ingredient <span class="text-primary">{{ ingredient?.name }}</span>
+</h1>
+<hr>
+
+<div class="row">
+    <div class="col-md-2">Name</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ ingredient?.name }}</span>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-md-2">Price</div>
+    <div class="col-md-6">
+        <span class="fw-bold">{{ ingredient?.price }}</span>
+    </div>
+</div>
+
+
+<div class="mt-3">
+    <button mat-raised-button [routerLink]="['/ingredient']">Back</button>
+    <button mat-raised-button color="primary" class="ms-2" [routerLink]="['/edit/ingredient', ingredient?.id]">Edit</button>
+</div>

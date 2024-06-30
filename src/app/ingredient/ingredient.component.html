@@ -1,0 +1,33 @@
+<h1>Ingredient</h1>
+<hr>
+<button mat-raised-button color="primary" class="mt-3 mb-5" [routerLink]="['/add/ingredient']" >Create new Ingredient</button>
+
+<table class="table table-stript table-hover">
+   <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr *ngFor="let item of ingredients">
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        
+        <td>
+            <a class="text-info" [routerLink]="['/details/ingredient', item.id]" title="Details">
+                <i class="fa-solid fa-circle-info"></i>
+            </a>
+            <a class="ms-2" [routerLink]="['/edit/ingredient', item.id]" title="Edit">
+                <i class="fa-solid fa-pen"></i>
+            </a>
+              <a class="ms-2 text-danger pointer" (click)="deleteIngredient(item)" title="Delete">
+                <i class="fa-solid fa-trash"></i>
+            </a>  
+        </td>
+        
+        
+    </tr>
+   </tbody>
+</table>
