@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageMode } from '../../Enum/page-mode.enum';
 import { LookUp } from '../../Models/LookUp';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { order } from '../../Models/Order/order';
+import { Order } from '../../Models/Order/order';
 import { OrderService } from '../../Services/order.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -32,9 +32,9 @@ export class CreateUpdateOrderComponent implements OnInit {
   pageModeEnum = PageMode;
 
   constructor(
-    private customerSVC : CustomerService,
-    private orderSvc : OrderService,
-    private mealSvc : MealService,
+    private customerSVC: CustomerService,
+    private orderSvc: OrderService,
+    private mealSvc: MealService,
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private spinner: NgxSpinnerService,
@@ -44,7 +44,7 @@ export class CreateUpdateOrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadcustomerLookup();
-     this.loadmealLookup();
+    this.loadmealLookup();
     this.setId();
     this.buildForm();
 
@@ -86,11 +86,11 @@ export class CreateUpdateOrderComponent implements OnInit {
     this.form = this.fb.group({
       id: [0],
       dateTime: ['', Validators.required],
-      notes : [''],
-      customerId : [''],
-      meals : [''],
+      notes: [''],
+      customerId: [''],
+      mealIds: [''],
     });
-    
+
   }
 
   private loadOrder(): void {
@@ -114,26 +114,26 @@ export class CreateUpdateOrderComponent implements OnInit {
     });
 
   }
-   private loadmealLookup(): void {
+  private loadmealLookup(): void {
 
-     this.spinner.show();
+    this.spinner.show();
 
-     this.mealSvc.getMealLookup().subscribe({
-       next: (mealLookupFromApi: LookUp[]) => {
+    this.mealSvc.getMealLookup().subscribe({
+      next: (mealLookupFromApi: LookUp[]) => {
 
-         this.mealLookup = mealLookupFromApi;
-       },
+        this.mealLookup = mealLookupFromApi;
+      },
       error: (err: HttpErrorResponse) => {
 
-         this.toastr.error(err.message)
-       },
-       complete: () => {
+        this.toastr.error(err.message)
+      },
+      complete: () => {
 
-         this.spinner.hide();
-       }
-     });
-   }
-   private loadcustomerLookup(): void {
+        this.spinner.hide();
+      }
+    });
+  }
+  private loadcustomerLookup(): void {
 
     this.spinner.show();
 
@@ -142,7 +142,7 @@ export class CreateUpdateOrderComponent implements OnInit {
 
         this.customerLookup = customerLookupFromApi;
       },
-     error: (err: HttpErrorResponse) => {
+      error: (err: HttpErrorResponse) => {
 
         this.toastr.error(err.message)
       },
@@ -160,12 +160,12 @@ export class CreateUpdateOrderComponent implements OnInit {
     this.orderSvc.createOrder(this.form.value).subscribe({
       next: () => {
 
-       this.toastr.success(`Order has been created successfully.`);
+        this.toastr.success(`Order has been created successfully.`);
         this.router.navigate(['/order']);
       },
       error: (err: HttpErrorResponse) => {
 
-      this.toastr.error(err.message);
+        this.toastr.error(err.message);
       },
       complete: () => {
 
@@ -181,12 +181,12 @@ export class CreateUpdateOrderComponent implements OnInit {
     this.orderSvc.updateOrder(this.OrderId, this.form.value).subscribe({
       next: () => {
 
-       this.toastr.success(`Order has been updated successfully.`);
+        this.toastr.success(`Order has been updated successfully.`);
         this.router.navigate(['/order']);
       },
       error: (err: HttpErrorResponse) => {
 
-       this.toastr.error(err.message);
+        this.toastr.error(err.message);
       },
       complete: () => {
 

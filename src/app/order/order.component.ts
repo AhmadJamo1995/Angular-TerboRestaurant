@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DeleteOrderDialogComponent } from './delete-order-dialog/delete-order-dialog.component';
-import { order } from '../Models/Order/order';
+import { Order } from '../Models/Order/order';
 import { OrderService } from '../Services/order.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -14,7 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class OrderComponent implements OnInit {
 
-  orders: order[] = []
+  orders: Order[] = []
 
   constructor(
     private orderSvc: OrderService,
@@ -24,10 +24,10 @@ export class OrderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
     this.loadOrders();
   }
-  deleteOrder(order: order): void {
+  deleteOrder(order: Order): void {
 
     let deleteDialog = this.dialog.open(DeleteOrderDialogComponent, {
       data: order
@@ -66,14 +66,14 @@ export class OrderComponent implements OnInit {
   loadOrders() {
 
     this.spinner.show();
-  
+
     this.orderSvc.getItems().subscribe({
-      next: (ordersFromApi : order[]) => {
+      next: (ordersFromApi: Order[]) => {
 
         this.orders = ordersFromApi;
       },
-      error: (err : HttpErrorResponse) => {
-        
+      error: (err: HttpErrorResponse) => {
+
         this.toastr.error(err.message);
       },
       complete: () => {

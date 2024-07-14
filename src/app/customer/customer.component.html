@@ -1,6 +1,6 @@
 <h1>Customer</h1>
 <hr>
-<button mat-raised-button color="primary" class="mt-3 mb-5" [routerLink]="['/add/customer']">Create new
+<button mat-raised-button color="primary" class="mt-3 mb-5" [routerLink]="['create']">Create new
     Customer</button>
 
 <table class="table table-stript table-hover">
@@ -31,10 +31,10 @@
             </td>
             <td>{{item.country}}</td>
             <td>
-                <a class="text-info" [routerLink]="['/details/customer', item.Id]" title="Details">
+                <a class="text-info" [routerLink]="['/customer/details', item.id]" title="Details">
                     <i class="fa-solid fa-circle-info"></i>
                 </a>
-                <a class="ms-2" [routerLink]="['/edit/customer', item.Id]" title="Edit">
+                <a class="ms-2" [routerLink]="['/customer/edit', item.id]" title="Edit">
                     <i class="fa-solid fa-pen"></i>
                 </a>
                 <a class="ms-2 text-danger pointer" (click)="deleteCustomer(item)" title="Delete">

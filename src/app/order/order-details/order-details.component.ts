@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { order } from '../../Models/Order/order';
+import { Order } from '../../Models/Order/order';
 import { OrderService } from '../../Services/order.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -12,21 +12,19 @@ import { orderDetails } from '../../Models/Order/orderDetails';
   templateUrl: './order-details.component.html',
   styleUrl: './order-details.component.css'
 })
-export class OrderDetailsComponent implements OnInit  {
-  
+export class OrderDetailsComponent implements OnInit {
+
   orderId!: number;
   order?: orderDetails;
-  
+
   constructor(
-    private orderSvc: OrderService ,
+    private orderSvc: OrderService,
     private spinner: NgxSpinnerService,
-   private toastr: ToastrService,
+    private toastr: ToastrService,
     private activatedRoute: ActivatedRoute
-  )
-  
-  { }
-  
-  
+  ) { }
+
+
   ngOnInit(): void {
 
     this.setId();
@@ -53,7 +51,7 @@ export class OrderDetailsComponent implements OnInit  {
       },
       error: (err: HttpErrorResponse) => {
 
-       this.toastr.error(err.message);
+        this.toastr.error(err.message);
       },
       complete: () => {
 
@@ -61,7 +59,8 @@ export class OrderDetailsComponent implements OnInit  {
       }
 
     });
-  }}
+  }
+}
 
-  //#endregion
+//#endregion
 

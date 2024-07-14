@@ -18,9 +18,6 @@ import { createUpdateMeal } from '../../Models/Meal/createUpdateMeal';
 })
 export class CreateUpdateMealComponent implements OnInit {
 
-
-
-
   ingredientLookup: LookUp[] = [];
   MealId!: number;
   form!: FormGroup;
@@ -83,10 +80,9 @@ export class CreateUpdateMealComponent implements OnInit {
 
     this.form = this.fb.group({
       id: [0],
-      Name: ['', Validators.required],
-      Price: ['', Validators.required],
-      Description: [''],
-      IngredientIds: [''],
+      name: ['', Validators.required],
+      description: [''],
+      ingredientIds: [''],
     });
 
   }
@@ -112,6 +108,7 @@ export class CreateUpdateMealComponent implements OnInit {
     });
 
   }
+
   private loadIngredientLookup(): void {
 
     this.spinner.show();
@@ -175,5 +172,4 @@ export class CreateUpdateMealComponent implements OnInit {
   }
 
   //#endregion
-
 } 

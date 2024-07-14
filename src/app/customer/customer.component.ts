@@ -42,7 +42,7 @@ export class CustomerComponent implements OnInit {
 
           this.spinner.show();
 
-          this.customerSvc.deleteCustomer(customer.Id).subscribe({
+          this.customerSvc.deleteCustomer(customer.id).subscribe({
             next: () => {
 
               this.toastr.success(`Product has been deleted successfully.`);

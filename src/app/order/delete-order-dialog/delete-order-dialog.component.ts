@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { order } from '../../Models/Order/order';
+import { Order } from '../../Models/Order/order';
 
 @Component({
   selector: 'app-delete-order-dialog',
@@ -10,6 +10,6 @@ import { order } from '../../Models/Order/order';
 export class DeleteOrderDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<DeleteOrderDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public order: order,
+    @Inject(MAT_DIALOG_DATA) public order: Order,
   ) { }
 }

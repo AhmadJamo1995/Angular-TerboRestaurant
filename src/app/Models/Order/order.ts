@@ -1,11 +1,7 @@
-import { customer } from "../Customer/customer";
-
-export interface order {
-    id : number;
-    dateTime : String;
-    totalPrice : number;
-    notes : string;
-    CustomerId : string;
-   
-    
+export interface Order {
+    id: number;
+    orderTime: string;
+    totalPrice: number;
+    notes: string;
+    customerFullName: string;
 }

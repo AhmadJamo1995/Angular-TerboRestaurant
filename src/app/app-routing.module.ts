@@ -18,8 +18,6 @@ const routes: Routes = [
 
 
   {
-
-
     path: 'home',
     component: HomeComponent
   },
@@ -30,17 +28,17 @@ const routes: Routes = [
 
   },
   {
-    path: 'add/customer',
+    path: 'customer/create',
     component: CreateUpdateCustomerComponent
 
   },
   {
-    path: 'edit/customer/:id',
+    path: 'customer/edit/:id',
     component: CreateUpdateCustomerComponent
 
   },
   {
-    path: 'details/customer/:id',
+    path: 'customer/details/:id',
     component: CustomerDetailsComponent
 
   },
@@ -50,17 +48,17 @@ const routes: Routes = [
 
   },
   {
-    path: 'add/ingredient',
+    path: 'ingredient/create',
     component: CreateUpdateIngredientComponent
 
   },
   {
-    path: 'edit/ingredient/:id',
+    path: 'ingredient/edit/:id',
     component: CreateUpdateIngredientComponent
 
   },
   {
-    path: 'details/ingredient/:id',
+    path: 'ingredient/details/:id',
     component: IngredientDetailsComponent
 
   },
@@ -70,17 +68,17 @@ const routes: Routes = [
 
   },
   {
-    path: 'add/meal',
+    path: 'meal/create',
     component: CreateUpdateMealComponent
 
   },
   {
-    path: 'edit/meal/:id',
+    path: 'meal/edit/:id',
     component: CreateUpdateMealComponent
 
   },
   {
-    path: 'details/meal/:id',
+    path: 'meal/details/:id',
     component: MealDetailsComponent
 
   },
@@ -90,31 +88,25 @@ const routes: Routes = [
 
   },
   {
-    path: 'add/order',
+    path: 'order/create',
     component: CreateUpdateOrderComponent
 
   },
   {
-    path: 'edit/order/:id',
+    path: 'order/edit/:id',
     component: CreateUpdateOrderComponent
 
   },
   {
-    path: 'details/order/:id',
+    path: 'order/details/:id',
     component: OrderDetailsComponent
 
   },
-
-
   {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'
-  },
-
-
-
-
+  }
 ];
 
 @NgModule({
