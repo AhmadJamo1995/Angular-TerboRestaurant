@@ -37,12 +37,12 @@ export class CustomerService {
 
   createCustomer(customer: createUpdateCustomer): Observable<any> {
 
-    return this.http.post<createUpdateCustomer>(`${this.apiUrl}/Customers/PostCustomer`, customer)
+    return this.http.post<createUpdateCustomer>(`${this.apiUrl}/Customers/CreateCustomer`, customer)
   }
 
   updateCustomer(id: number, customer: createUpdateCustomer): Observable<any> {
 
-    return this.http.put<createUpdateCustomer>(`${this.apiUrl}/Customers/PutCustomer/${id}`, customer);
+    return this.http.put<createUpdateCustomer>(`${this.apiUrl}/Customers/UpdateCustomer/${id}`, customer);
   }
 
 

@@ -11,11 +11,11 @@ import { LookUp } from '../Models/LookUp';
 })
 export class MealService {
 
-  private apiUrl = 'https://localhost:7223/api'; 
+  private apiUrl = 'https://localhost:7223/api';
 
-   
-  constructor( private http : HttpClient) { 
-    
+
+  constructor(private http: HttpClient) {
+
   }
   getItems(): Observable<meal[]> {
     return this.http.get<meal[]>(`${this.apiUrl}/Meals/GetMeals`);
@@ -25,34 +25,34 @@ export class MealService {
 
     return this.http.get<mealDetails>(`${this.apiUrl}/Meals/GetMeal/${id}`);
 
-}
+  }
 
-getMealForEdit(id: number): Observable<createUpdateMeal> {
+  getMealForEdit(id: number): Observable<createUpdateMeal> {
 
-  return this.http.get<createUpdateMeal>(`${this.apiUrl}/Meals/GetMealForEdit/${id}`);
-
-
-}
+    return this.http.get<createUpdateMeal>(`${this.apiUrl}/Meals/GetMealForEdit/${id}`);
 
 
-createMeal(meal: createUpdateMeal): Observable<any> {
-
-  return this.http.post<createUpdateMeal>(`${this.apiUrl}/Meals/PostMeal`, meal)
-}
-
-updateMeal(id: number, meal: createUpdateMeal): Observable<any> {
-
-  return this.http.put<createUpdateMeal>(`${this.apiUrl}/Meals/PutMeal/${id}`, meal);
-}
+  }
 
 
-deleteMeal(id: number): Observable<any> {
+  createMeal(meal: createUpdateMeal): Observable<any> {
 
-  return this.http.delete(`${this.apiUrl}/Meals/DeleteMeal/${id}`);
-}
-getMealLookup(): Observable<LookUp[]> {
+    return this.http.post<createUpdateMeal>(`${this.apiUrl}/Meals/CreateMeal`, meal)
+  }
 
-  return this.http.get<LookUp[]>(`${this.apiUrl}/Meals/GetMealLookup`);
-}
+  updateMeal(id: number, meal: createUpdateMeal): Observable<any> {
+
+    return this.http.put<createUpdateMeal>(`${this.apiUrl}/Meals/UpdateMeal/${id}`, meal);
+  }
+
+
+  deleteMeal(id: number): Observable<any> {
+
+    return this.http.delete(`${this.apiUrl}/Meals/DeleteMeal/${id}`);
+  }
+  getMealLookup(): Observable<LookUp[]> {
+
+    return this.http.get<LookUp[]>(`${this.apiUrl}/Meals/GetMealLookup`);
+  }
 
 }
