@@ -30,7 +30,11 @@
           <a class="nav-link" [routerLink]="['order']">Order</a>
         </li>
       </ul>
-
+      <div class="form-check form-switch ms-auto ">
+        <input class="form-check-input" (click)="toggleTheme()" type="checkbox" role="switch"
+          id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Theme</label>
+      </div>
     </div>
   </div>
 </nav>

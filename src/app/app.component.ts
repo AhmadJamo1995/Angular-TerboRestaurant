@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from './Services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TerboRestaurant';
+
+
+
+  constructor(private themeService: ThemeService) { }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
+  }
+
+  isDarkTheme() {
+    return this.themeService.isDark();
+  }
 }
