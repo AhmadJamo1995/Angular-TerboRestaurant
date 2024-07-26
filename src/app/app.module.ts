@@ -80,7 +80,8 @@ import { DeleteOrderDialogComponent } from './order/delete-order-dialog/delete-o
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+
 
   ],
   providers: [
