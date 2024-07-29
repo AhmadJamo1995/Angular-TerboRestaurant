@@ -74,7 +74,7 @@ export class IngredientComponent implements OnInit {
       },
       error: (err: HttpErrorResponse) => {
 
-        // this.toastr.error(err.message);
+        this.toastr.error(err.message);
       },
       complete: () => {
 
