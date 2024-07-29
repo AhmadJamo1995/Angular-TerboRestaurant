@@ -4,27 +4,26 @@ import { ingredient } from '../../Models/Ingredient/ingredient';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ingredient-details',
   templateUrl: './ingredient-details.component.html',
   styleUrl: './ingredient-details.component.css'
 })
-export class IngredientDetailsComponent implements OnInit  {
-  
+export class IngredientDetailsComponent implements OnInit {
+
   ingredientId!: number;
   ingredient?: ingredient;
-  
+
   constructor(
-    private IngredientSvc: IngredientService ,
+    private IngredientSvc: IngredientService,
     private spinner: NgxSpinnerService,
-    //private toastr: ToastrService,
+    private toastr: ToastrService,
     private activatedRoute: ActivatedRoute
-  )
-  
-  { }
-  
-  
+  ) { }
+
+
   ngOnInit(): void {
 
     this.setId();
@@ -51,7 +50,7 @@ export class IngredientDetailsComponent implements OnInit  {
       },
       error: (err: HttpErrorResponse) => {
 
-       // this.toastr.error(err.message);
+        this.toastr.error(err.message);
       },
       complete: () => {
 
@@ -59,6 +58,7 @@ export class IngredientDetailsComponent implements OnInit  {
       }
 
     });
-  }}
+  }
+}
 
-  //#endregion
+//#endregion

@@ -45,7 +45,7 @@ export class CustomerComponent implements OnInit {
           this.customerSvc.deleteCustomer(customer.id).subscribe({
             next: () => {
 
-              this.toastr.success(`Product has been deleted successfully.`);
+              this.toastr.success(`Customer has been deleted successfully.`);
               this.loadCustomers();
             },
             error: (err: HttpErrorResponse) => {

@@ -7,6 +7,7 @@ import { CustomerService } from '../../Services/customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { createUpdateCustomer } from '../../Models/Customer/createUpdateCustomer';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-update-customer',
@@ -28,7 +29,7 @@ export class CreateUpdateCustomerComponent implements OnInit {
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private spinner: NgxSpinnerService,
-    //private toastr: ToastrService,
+    private toastr: ToastrService,
     private router: Router
   ) { }
 
@@ -74,14 +75,14 @@ export class CreateUpdateCustomerComponent implements OnInit {
 
     this.form = this.fb.group({
       id: [0],
-    phoneNumber : [''],
-    email :[''],
-    gender : [''],
-    firstName :[''],
-    lastName :[''],
-    dateOfBirth : [''],
-     country : ['']
-      
+      phoneNumber: [''],
+      email: [''],
+      gender: [''],
+      firstName: [''],
+      lastName: [''],
+      dateOfBirth: [''],
+      country: ['']
+
     });
 
   }
@@ -98,7 +99,7 @@ export class CreateUpdateCustomerComponent implements OnInit {
       },
       error: (err: HttpErrorResponse) => {
 
-       // this.toastr.error(err.message);
+        this.toastr.error(err.message);
       },
       complete: () => {
 
@@ -115,12 +116,12 @@ export class CreateUpdateCustomerComponent implements OnInit {
     this.CustomerSvc.createCustomer(this.form.value).subscribe({
       next: () => {
 
-       // this.toastr.success(`Customer has been created successfully.`);
+        this.toastr.success(`Customer has been created successfully.`);
         this.router.navigate(['/customer']);
       },
       error: (err: HttpErrorResponse) => {
 
-      //  this.toastr.error(err.message);
+        this.toastr.error(err.message);
       },
       complete: () => {
 
@@ -136,12 +137,12 @@ export class CreateUpdateCustomerComponent implements OnInit {
     this.CustomerSvc.updateCustomer(this.CustomerId, this.form.value).subscribe({
       next: () => {
 
-        //this.toastr.success(`Customer has been updated successfully.`);
+        this.toastr.success(`Customer has been updated successfully.`);
         this.router.navigate(['/customer']);
       },
       error: (err: HttpErrorResponse) => {
 
-       // this.toastr.error(err.message);
+        this.toastr.error(err.message);
       },
       complete: () => {
 
@@ -152,7 +153,7 @@ export class CreateUpdateCustomerComponent implements OnInit {
 
   //#endregion
 
-}  
+}
 
 
 

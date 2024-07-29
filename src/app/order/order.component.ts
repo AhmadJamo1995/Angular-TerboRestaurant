@@ -43,7 +43,7 @@ export class OrderComponent implements OnInit {
           this.orderSvc.deleteOrder(order.id).subscribe({
             next: () => {
 
-              this.toastr.success(`Product has been deleted successfully.`);
+              this.toastr.success(`Order has been deleted successfully.`);
               this.loadOrders();
             },
             error: (err: HttpErrorResponse) => {

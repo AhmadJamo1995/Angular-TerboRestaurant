@@ -6,6 +6,7 @@ import { IngredientService } from '../../Services/ingredient.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { PageMode } from '../../Enum/page-mode.enum';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-update-ingredient',
@@ -27,7 +28,7 @@ export class CreateUpdateIngredientComponent implements OnInit {
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private spinner: NgxSpinnerService,
-    //private toastr: ToastrService,
+    private toastr: ToastrService,
     private router: Router
   ) { }
 
@@ -74,9 +75,9 @@ export class CreateUpdateIngredientComponent implements OnInit {
     this.form = this.fb.group({
       id: [0],
       Name: ['', Validators.required],
-      Price : ['', Validators.required],
-      
-      
+      Price: ['', Validators.required],
+
+
     });
 
   }
@@ -93,7 +94,7 @@ export class CreateUpdateIngredientComponent implements OnInit {
       },
       error: (err: HttpErrorResponse) => {
 
-       // this.toastr.error(err.message);
+        this.toastr.error(err.message);
       },
       complete: () => {
 
@@ -110,12 +111,12 @@ export class CreateUpdateIngredientComponent implements OnInit {
     this.IngredientSvc.createIngredient(this.form.value).subscribe({
       next: () => {
 
-       // this.toastr.success(`Ingredient has been created successfully.`);
+        this.toastr.success(`Ingredient has been created successfully.`);
         this.router.navigate(['/ingredient']);
       },
       error: (err: HttpErrorResponse) => {
 
-      //  this.toastr.error(err.message);
+        this.toastr.error(err.message);
       },
       complete: () => {
 
@@ -136,7 +137,7 @@ export class CreateUpdateIngredientComponent implements OnInit {
       },
       error: (err: HttpErrorResponse) => {
 
-       // this.toastr.error(err.message);
+        // this.toastr.error(err.message);
       },
       complete: () => {
 
@@ -147,7 +148,7 @@ export class CreateUpdateIngredientComponent implements OnInit {
 
   //#endregion
 
-}  {
+} {
 
 }
 

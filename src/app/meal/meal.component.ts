@@ -5,6 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteMealDialogComponent } from './delete-meal-dialog/delete-meal-dialog.component';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-meal',
@@ -17,13 +18,13 @@ export class MealComponent implements OnInit {
 
   constructor(
     private mealSvc: MealService,
-    //private toastr: ToastrService,
+    private toastr: ToastrService,
     private spinner: NgxSpinnerService,
     private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    
+
     this.loadIngredients();
   }
   deleteIngredient(meal: meal): void {
@@ -42,12 +43,12 @@ export class MealComponent implements OnInit {
           this.mealSvc.deleteMeal(meal.id).subscribe({
             next: () => {
 
-           //   this.toastr.success(`Product has been deleted successfully.`);
+              this.toastr.success(`Meal has been deleted successfully.`);
               this.loadIngredients();
             },
             error: (err: HttpErrorResponse) => {
 
-            //  this.toastr.error(err.message);
+              this.toastr.error(err.message);
             },
             complete: () => {
 
@@ -65,15 +66,15 @@ export class MealComponent implements OnInit {
   loadIngredients() {
 
     this.spinner.show();
-  
+
     this.mealSvc.getItems().subscribe({
-      next: (mealsFromApi : meal[]) => {
+      next: (mealsFromApi: meal[]) => {
 
         this.meals = mealsFromApi;
       },
-      error: (err : HttpErrorResponse) => {
-        
-       // this.toastr.error(err.message);
+      error: (err: HttpErrorResponse) => {
+
+        // this.toastr.error(err.message);
       },
       complete: () => {
 
