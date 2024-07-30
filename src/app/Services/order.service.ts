@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '../Models/Order/order';
 import { Observable } from 'rxjs';
-import { orderDetails } from '../Models/Order/orderDetails';
+import { OrderDetails } from '../Models/Order/orderDetails';
 import { createUpdateOrder } from '../Models/Order/createUpdateOrder';
 
 @Injectable({
@@ -20,9 +20,9 @@ export class OrderService {
     return this.http.get<Order[]>(`${this.apiUrl}/Orders/GetOrders`);
   }
 
-  getOrder(id: number): Observable<orderDetails> {
+  getOrder(id: number): Observable<OrderDetails> {
 
-    return this.http.get<orderDetails>(`${this.apiUrl}/Orders/GetOrder/${id}`);
+    return this.http.get<OrderDetails>(`${this.apiUrl}/Orders/GetOrder/${id}`);
 
   }
 

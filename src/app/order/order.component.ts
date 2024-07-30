@@ -63,7 +63,7 @@ export class OrderComponent implements OnInit {
   }
   //#region Private Functions
 
-  loadOrders() {
+  private loadOrders() {
 
     this.spinner.show();
 

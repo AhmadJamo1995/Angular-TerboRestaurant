@@ -1,11 +1,10 @@
-import { Gender } from "../../Shared/Gender.enum";
 import { meal } from "../Meal/meal";
 
-export interface orderDetails {
-    id : number;
-    dateTime : String;
-    totalPrice : number;
-    notes : string;
-    CustomerId : string;
-    meals : meal[];
+export interface OrderDetails {
+    id: number;
+    orderTime: string;
+    totalPrice: number;
+    notes: string;
+    customerFullName: string;
+    meals: meal[];
 }

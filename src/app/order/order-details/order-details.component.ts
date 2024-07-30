@@ -5,7 +5,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { orderDetails } from '../../Models/Order/orderDetails';
+import { OrderDetails } from '../../Models/Order/orderDetails';
 
 @Component({
   selector: 'app-order-details',
@@ -15,7 +15,7 @@ import { orderDetails } from '../../Models/Order/orderDetails';
 export class OrderDetailsComponent implements OnInit {
 
   orderId!: number;
-  order?: orderDetails;
+  order?: OrderDetails;
 
   constructor(
     private orderSvc: OrderService,
@@ -45,7 +45,7 @@ export class OrderDetailsComponent implements OnInit {
     this.spinner.show();
 
     this.orderSvc.getOrder(this.orderId).subscribe({
-      next: (orderFromApi: orderDetails) => {
+      next: (orderFromApi: OrderDetails) => {
 
         this.order = orderFromApi;
       },

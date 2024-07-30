@@ -13,7 +13,7 @@ import { DeleteCustomerDialogComponentComponent } from './customer/delete-custom
 import { MatDialogModule } from '@angular/material/dialog';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { DeleteIngredientDialogComponentComponent } from './ingredient/delete-ingredient-dialog-component/delete-ingredient-dialog-component.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { CreateUpdateIngredientComponent } from './ingredient/create-update-ingredient/create-update-ingredient.component';
 import { IngredientDetailsComponent } from './ingredient/ingredient-details/ingredient-details.component';
@@ -60,9 +60,6 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     CreateUpdateOrderComponent,
     DeleteOrderDialogComponent,
     ScrollToTopComponent,
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -70,7 +67,6 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     FontAwesomeModule,
     NgxSpinnerModule,
     MatDialogModule,
-    HttpClientModule,
     MatButtonModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -83,11 +79,10 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     MatSortModule,
     MatPaginatorModule,
     ToastrModule.forRoot(),
-
-
   ],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

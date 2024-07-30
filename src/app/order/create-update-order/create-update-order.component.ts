@@ -85,7 +85,6 @@ export class CreateUpdateOrderComponent implements OnInit {
 
     this.form = this.fb.group({
       id: [0],
-      dateTime: ['', Validators.required],
       notes: [''],
       customerId: [''],
       mealIds: [''],

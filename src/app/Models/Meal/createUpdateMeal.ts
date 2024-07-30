@@ -1,4 +1,4 @@
-import { Gender } from "../../Shared/Gender.enum";
+import { Gender } from "../../Enum/Gender.enum";
 import { ingredient } from "../Ingredient/ingredient";
 
 export interface createUpdateMeal {

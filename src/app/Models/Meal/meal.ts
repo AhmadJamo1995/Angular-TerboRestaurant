@@ -1,4 +1,4 @@
-import { Gender } from "../../Shared/Gender.enum";
+import { Gender } from "../../Enum/Gender.enum";
 
 export interface meal {
     id: number;

@@ -9,18 +9,7 @@
 
 <form [formGroup]="form" (ngSubmit)="submit()">
 
-    <div class="row">
-        <div class="col-md-6">
 
-            <mat-form-field appearance="fill">
-                <mat-label>dateTime</mat-label>
-                <input matInput [matDatepicker]="picker" formControlName="dateTime">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-        </div>
-
-    </div>
     <div class="row mt-3">
         <div class="col-md-6">
 
